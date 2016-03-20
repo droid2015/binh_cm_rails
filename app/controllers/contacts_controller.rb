@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(user_id: current_user.id)
   end
 
   # GET /contacts/1
@@ -24,12 +24,12 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-    debugger
+    
+    @contact = current_user.contact.build(contact_params)
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to contacts_path, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -72,4 +72,5 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit(:fullname, :phonenumber, :address, :description)
     end
+
 end
