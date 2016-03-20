@@ -1,0 +1,2 @@
+module MasterPagesHelper
+end

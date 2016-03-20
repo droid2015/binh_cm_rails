@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= full_title(yield(:title))%></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Contactmangement" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+    <footer class="footer">
+     <small>
+       The <a href="http://www.simple.heroku.com/">Contact app</a>
+       by <a href="mailto:binhnt.ttdt@gmail.com">Nguyễn Thái Bình</a>
+     </small>
+     <nav> <ul>
+         <li><%= link_to "About",   about_path%></li>
+         <li><%= link_to "ContactUS", "#" %></li>
+      </ul> 
+    </nav>
+    </footer>
+  </body>
+</html>
