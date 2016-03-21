@@ -24,9 +24,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    
     @contact = current_user.contact.build(contact_params)
-
     respond_to do |format|
       if @contact.save
         format.html { redirect_to contacts_path, notice: 'Contact was successfully created.' }

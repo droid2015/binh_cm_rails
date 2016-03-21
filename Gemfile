@@ -4,7 +4,7 @@ ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Mã hóa
-gem 'bcrypt-ruby', '3.1.2', :require => 'bcrypt' 
+gem 'bcrypt-ruby', '~>3.1.2', :require => 'bcrypt' 
 #Phân trang
 gem 'will_paginate','~>3.0.7'
 gem 'bootstrap-will_paginate', '~>0.0.10'
@@ -40,7 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
 gem 'simple_form'
-
+gem 'tzinfo-data'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

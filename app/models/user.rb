@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: {minimum: 4},allow_blank:true
 	def self.digest(string)
-    	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                              BCrypt::Engine.cost
+    	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+        #cost=10                           
         BCrypt::Password.create(string, cost: cost)
 	end
 	# Returns a random token. Số random 22 ky tu

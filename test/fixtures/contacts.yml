@@ -3,11 +3,11 @@
 one:
   fullname: MyString
   phonenumber: MyString
-  address: MyString
   description: MyString
+  user_id: 
 
 two:
   fullname: MyString
   phonenumber: MyString
-  address: MyString
   description: MyString
+  user_id: 

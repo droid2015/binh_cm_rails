@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320160809) do
+ActiveRecord::Schema.define(version: 20160321041755) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "fullname",    limit: 255
     t.string   "phonenumber", limit: 255
-    t.string   "address",     limit: 255
     t.string   "description", limit: 255
+    t.integer  "user_id",     limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "userid",      limit: 4
-    t.integer  "user_id",     limit: 4
+    t.string   "address",     limit: 255
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
