@@ -1,4 +1,4 @@
-require 'csv'
+
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
 	has_many :contact

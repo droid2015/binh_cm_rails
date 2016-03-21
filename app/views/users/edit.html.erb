@@ -1,6 +1,14 @@
+<div class="page-header">
+  <%= link_to @user, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Show
+  <% end %>
+  <%= link_to users_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Back
+  <% end %>
 <h1>Editing User</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
