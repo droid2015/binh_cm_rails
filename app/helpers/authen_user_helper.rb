@@ -24,6 +24,9 @@ module AuthenUserHelper
 	def logged_in?
 		!current_user.nil?
 	end
+	def admin?
+		!current_user.nil? && !current_user.admin.nil?
+	end
 	# Xoá cookies	
 	def forget(user)
 		user.forget
@@ -41,4 +44,9 @@ module AuthenUserHelper
 		redirect_to (session[:forwarding_url]||default)
 		session.delete(:forwarding_url)
 	end
+	#Lưu vị trí hiện tại
+	def store_location
+		session[:forwarding_url] = request.url if request.get?
+	end
+
 end

@@ -1,10 +1,11 @@
 class ContactsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.where(user_id: current_user.id)
+    @contacts = Contact.where(user_id: current_user.id).paginate(page: params[:page])
   end
 
   # GET /contacts/1

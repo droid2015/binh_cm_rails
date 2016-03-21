@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  #Kiểm tra login bằng account admin
+  before_action :admin_login, only: [:index, :edit, :show, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
