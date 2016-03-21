@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   get 'login' => 'authen_user#new'
   post 'login' =>'authen_user#create'
   delete 'logout' =>'authen_user#destroy'
-  #Thêm user, rails tự tạo signup_path
+  #Xử lý user
   get 'signup' =>'users#new'
+  get 'users' =>'users#index'
+
   #Phần danh bạ
   get 'contacts' => 'contacts#index'
+  #Phần export
+  get 'export' =>'contacts#export'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

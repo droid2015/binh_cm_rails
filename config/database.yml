@@ -19,8 +19,8 @@ default: &default
 
 development:
   <<: *default
-  username: newuser
-  password: password
+  username: root
+  password: root
   database: contactmangement_development
   host: localhost
 

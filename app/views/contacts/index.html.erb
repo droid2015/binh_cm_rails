@@ -3,6 +3,10 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Contact
   <% end %>
+  <%= link_to export_path(format: "csv") , class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-download-alt"></span>
+    Export Data
+  <% end %>
   <h1>Listing contacts</h1>
 </div>
 <%= will_paginate %>
@@ -33,3 +37,4 @@
     </tbody>
   </table>
 </div>
+<%= will_paginate %>

@@ -60,13 +60,26 @@ class ContactsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def render_404
+    return false
+  end
+  
+  def export
+    @contacts = Contact.where(user_id: current_user.id)
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.csv { send_data @contacts.to_csv.encode("UTF-8")}
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render_404
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:fullname, :phonenumber, :address, :description)

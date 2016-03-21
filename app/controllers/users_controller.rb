@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #Kiểm tra login bằng account admin
-  before_action :admin_login, only: [:index, :edit, :show, :update, :destroy]
+  before_action :admin_login, only: [:index,:destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -67,8 +67,9 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
+      rescue 
         flash[:danger] = "User not found"
+        return false
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

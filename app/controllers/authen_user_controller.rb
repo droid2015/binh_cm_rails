@@ -13,7 +13,7 @@ class AuthenUserController < ApplicationController
       else
         forget (user)
       end  
-      redirect_back_or user
+      redirect_back_or contacts_path
     else
       flash[:danger] = "Đăng nhập thất bại"
       render 'new'
